@@ -6,15 +6,20 @@ per second, with full security and sanitization checks.
 ## Getting Started
 
 Fastlog is an implementation of various OOP and general development concepts.
-> - Proper *data validation*. While validation and sanitization are regarded as tedious, repetitive tasks, they are the first line of defense and the most important.
-> - *Multiple configuration environments* that you can switch to when you're developing, testing and deploying.
-> - *Interfaces and Polymorphism* as means of building pluggable modules.
-> - *Prepared statements* in MySQL to avoid sql injections.
-> - *Caching of results* for compute-intesive calculations to manage acceptable response times
-> - *Concurrency handling* in MySQL through Select For Update
-> - *Stress testing*
-> - *Unit testing*
-> - Meaningful *error responses*
+
+* Proper *data validation*. While validation and sanitization are regarded as tedious, repetitive tasks, they are the first line of defense and the most important.
+* *Multiple configuration environments* that you can switch to when you're developing, testing and deploying.
+* *Interfaces and Polymorphism* as means of building pluggable modules.
+* *Prepared statements* in MySQL to avoid sql injections.
+* *Caching of results* for compute-intesive calculations to manage acceptable response times
+* *Concurrency handling* in MySQL through Select For Update
+* *Stress testing*
+* *Unit testing*
+* Meaningful *error responses*
+
+> The **MySqlCachedResponseLogger** is an experiemental functionality where data that would take a long time to compute is kept into a cache and served from that cache, until the cache is older that a certain number of seconds specified in config.php:maxCacheAge.
+> The function retrieves data from cache first. Verifies if this data is too old. If it is, does a second retrieval with the For Update intent. In this way, the cache table is now locked. However, another request might have updated the cache in the meantime, therefore another check for cache age is performed before it is decided whether to use the cached data or do a recalculation and cache update.
+
 
 ### Prerequisites
 
@@ -66,4 +71,5 @@ POST: {"country":"US","event":"clicks","date":"2017-04-03"}
 ## Authors
 
 * **Albi Gjino**
+
 

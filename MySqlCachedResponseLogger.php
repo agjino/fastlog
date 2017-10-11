@@ -13,6 +13,13 @@ class MySqlCachedResponseLogger extends MySqlLogger {
   /**
    * The only function that needs overloading.
    * 
+   * This is an experiemental functionality where data that would take a long time to compute is kept into a cache 
+   * and served from that cache, until the cache is older that a certain number of seconds specified in config.php:maxCacheAge.
+   * 
+   * The function retrieves data from cache first. Verifies if this data is too old. If it is, does a second retrieval 
+   * with the For Update intent. In this way, the cache table is now locked.
+   * However, another request might have updated the cache in the meantime, therefore another check for cache age is
+   * performed before it is decided whether to use the cached data or do a recalculation and cache update.
    */
   public function getTop5FromDb() {
     global $config;
