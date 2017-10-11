@@ -1,5 +1,7 @@
 <?php
 
+$env = 'local';
+
 /**
  * WARNING! Do not push this file into the CVS before anonymizing it!
  */
