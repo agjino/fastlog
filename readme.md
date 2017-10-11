@@ -34,6 +34,10 @@ Edit config.php with the appropriate values for database access and the base url
 config.php can contain configurations for multiple environments, ex. production or testing. To apply the appropriate
 environment, set the $env variable at the top of config.php.
 
+**To run the built-in unit tests, either make sure the environment data in $config['test_local'] is valid (ex. the specified database exists and the user has permissions) or edit $env in test/bootstrap.php**
+
+### Running
+
 The API calls are on $baseUrl/api/[service]
 For example, if $config['appUrl'] is http://localhost/fastlog, some API calls would be:
 
