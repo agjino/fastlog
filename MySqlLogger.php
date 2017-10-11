@@ -1,6 +1,6 @@
 <?php
 
-include 'mysql_db.php';
+require_once 'mysql_db.php';
 
 class MySqlLogger implements ILogger {
 
@@ -18,7 +18,9 @@ class MySqlLogger implements ILogger {
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
 
-  public function logEvent($country, $event, $date) {
+  public function logEvent($country, $event, $date = null) {
+    if ($date === null)  $date = date('Y-m-d');
+    
     $retval = $this->executeWrite("UPDATE log SET count = count + 1 WHERE
       `date` = :date AND
       country = :country AND

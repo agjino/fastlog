@@ -1,6 +1,6 @@
 <?php
 
-include ('MySqlLogger.php');
+require_once 'MySqlLogger.php';
 
 class MySqlSeeder implements ISeeder {
 

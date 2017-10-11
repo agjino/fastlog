@@ -1,6 +1,6 @@
 <?php
 
-include 'MySqlSeeder.php';
+require_once 'MySqlSeeder.php';
 
 /*
  * Exact replica of MySqlSeeder

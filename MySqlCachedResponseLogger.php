@@ -1,6 +1,6 @@
 <?php
 
-include 'MySqlLogger.php';
+require_once 'MySqlLogger.php';
 
 /**
  * MySql class that caches the calculations for the response

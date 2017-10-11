@@ -1,19 +1,31 @@
 <?php
 
-$env = 'local';
-
 /**
  * WARNING! Do not push this file into the CVS before anonymizing it!
  */
 $_config =
-  [ 'local' =>  
+  [ 'test_local' =>  
+    [
+      'mysql' => [
+        'dbHost' => 'localhost',
+        'dbPort' => '3306',
+        'dbName' => 'fastlog_test',
+        'dbUser' => 'root',
+        'dbPassword' => '',
+      ],
+      'maxCacheAge' => 1, //In seconds
+      'appUrl' => 'http://localhost/fastlog',
+      'allowCustomDate' => true,
+      'driver' => 'MySqlCachedResponse'
+    ],
+    'local' =>  
     [
       'mysql' => [
         'dbHost' => 'localhost',
         'dbPort' => '3306',
         'dbName' => 'fastlog',
         'dbUser' => 'fastlog',
-        'dbPassword' => 'fastlog_password',
+        'dbPassword' => 'fastlog',
       ],
       'maxCacheAge' => 1, //In seconds
       'appUrl' => 'http://localhost/fastlog',
@@ -27,7 +39,7 @@ $_config =
         'dbPort' => '3306',
         'dbName' => 'fastlog',
         'dbUser' => 'fastlog',
-        'dbPassword' => 'fastlog_password',
+        'dbPassword' => 'fastlog',
       ],
       'maxCacheAge' => 1, //In seconds
       'appUrl' => 'http://awesomeservices.com/fastlog',

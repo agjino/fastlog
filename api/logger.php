@@ -40,9 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     error('Invalid event. Must be in (views, plays, clicks)');
   };
 
-  //By default, the date is today's date
-  $date = date('Y-m-d');
-  
+  $date = null;
   /* Validate date */
   if (property_exists($request, 'date')) {
     //Verify that this environment allows custom dates (probably a test environment)
@@ -57,12 +55,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   };
   
   //Request is valid. Log it do db
-  //Include the driver file and instantiate the driver
-  include $config['driver'] . '.php';
-  $logger = new $config['driver'];
-  if (!$logger instanceof ILogger) {
-    error('Invalid driver');
-  }
   $logger->logEvent($request->country, $request->event, $date);
 
   echo 'OK';
