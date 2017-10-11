@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule . forbidden.html [L]
