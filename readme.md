@@ -1,5 +1,7 @@
 # PHP Fastlog
 
+<a href="https://github.com/agjino/fastlog">Fastlog on GitHub</a>
+
 Fastlog is a sample proof-of-concept web service built in raw PHP, able to handle hundreds of requests
 per second, with full security and sanitization checks.
 
